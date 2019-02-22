@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './styles/App.css';
-import './styles/TreeViewer.css';
+import appStyle from './styles/App.module.scss';
+import treeStyle from './styles/treeViewer.module.scss';
 
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider, Query } from "react-apollo";
@@ -18,19 +18,19 @@ const renderComponentTrees = trees => {
   return trees.map(({ path, name, children }) => (
     <div key={path}>
       <Collapsible
-        trigger={<div className={"TreeViewer-collapsible-trigger"}>
+        trigger={<div className={treeStyle['collapsible-trigger']}>
                    <span>{name}</span>
                    <span>
-                     <div className="TreeViewer-collapsible-trigger-icon">
+                     <div className={treeStyle['collapsible-trigger-icon']}>
                      </div>
                    </span>
                  </div>}
         transitionTime={200}
-        className="TreeViewer-collapsible"
-        openedClassName="TreeViewer-collapsible"
-        contentInnerClassName="TreeViewer-collapsible-content"
+        className={treeStyle['collapsible']}
+        openedClassName={treeStyle['collapsible']}
+        contentInnerClassName={treeStyle['collapsible-content']}
       >
-        <div className='TreeViewer-children'>
+        <div className={treeStyle['children']}>
           {renderComponentTrees(children)}
         </div>
       </Collapsible>
@@ -41,9 +41,9 @@ const renderComponentTrees = trees => {
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className={appStyle["App"]}>
         <ApolloProvider client={client}>
-          <div className="TreeViewer">
+          <div className={treeStyle['treeViewer']}>
             <Query query={gql`
               {
                 generateComponentTrees {

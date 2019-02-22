@@ -1,24 +1,24 @@
-.TreeViewer {
+.treeViewer {
   width: 300px;
   margin: auto;
   border: 1px solid #696969;
 }
 
-.TreeViewer-collapsible {
+.collapsible {
   text-align: left;
   background-color: #0000ff;
   color: white;
   cursor: pointer;
 }
 
-.TreeViewer-collapsible-trigger {
+.collapsible-trigger {
   padding-left: 10px;
 }
 
-.TreeViewer-collapsible-content {
+.collapsible-content {
   background-color: white;
   padding-left: 15px;
 }
 
-.TreeViewer-children {
+.children {
 }
